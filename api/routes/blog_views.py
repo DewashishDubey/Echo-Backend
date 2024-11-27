@@ -10,17 +10,15 @@ def fetch_all_blogs():
 
 @blog_views.route('/api/v1/create-blog', methods=['POST'])
 def add_blog():
-    blog_title = request.args.get('blog_title')
-    blog_author = request.args.get('blog_author')
-    blog_content = request.args.get('blog_content')
-    return blog_obj.create_blog(blog_author = blog_author, blog_title = blog_title, blog_content = blog_content)
+    blog_data = request.get_json()
+    return blog_obj.create_blog(blog_data = blog_data)
 
 @blog_views.route('/api/v1/remove-blog', methods=['DELETE'])
 def remove_blog():
-    blog_title = request.args.get('blog_title')
-    return blog_obj.remove_blog(blog_title = blog_title)
+    blog_data = request.get_json()
+    return blog_obj.remove_blog(blog_data = blog_data)
 
 @blog_views.route('/api/v1/fetch-author-blogs', methods=['GET'])
 def fetch_author_blogs():
-    blog_author = request.args.get('blog_author')
-    return blog_obj.fetch_author_blogs(blog_author = blog_author)
+    blog_data = request.get_json()
+    return blog_obj.fetch_author_blogs(blog_data = blog_data)
