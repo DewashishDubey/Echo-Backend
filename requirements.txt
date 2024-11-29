@@ -5,3 +5,4 @@ flask-restful
 marshmallow
 pyjwt
 python-dotenv
+marshmallow
